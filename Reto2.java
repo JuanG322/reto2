@@ -5,6 +5,7 @@
 package reto2;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
@@ -16,11 +17,12 @@ public class Reto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int numeroPacinetesInt=0;//defino int y strigs que uso en el programa
+        int numeroPacinetesInt=0, longitud;//defino int y strigs que uso en el programa
         int cancer=0,card = 0, respi = 0, cereb = 0,hiper = 0, diab = 0, Fami = 0, STotal = 0, Coom = 0, CSalud = 0, SColmena = 0;
         String[] listaEnfermedades = {"cancer", "cardiovasculares", "respiratorias", "cerebrovasculares", "hipertension", "diabetes"};
         String[] listaEPS = {"Famisanar", "Salud Total", "Cafesalud", "Coomeva", "Salud Colmena"};
         String enfermedades, EPS;
+        String[] adultos3 = {};
         
         Scanner scanner = new Scanner(System.in);
         
@@ -37,6 +39,7 @@ public class Reto2 {
            String palabras[] = datos.split("-"); 
            enfermedades = palabras[5];
            EPS = palabras[4];
+           
            
            switch(EPS){
                
@@ -75,7 +78,22 @@ public class Reto2 {
            else if(enfermedades.equalsIgnoreCase("diabetes")){
                 diab++;
             }
+           
+           int edad = Integer.parseInt(palabras[2]);
+           Paciente PacienteEdad = new Paciente(edad);
+           palabras[2] = PacienteEdad.calcularEdad();
+           //System.out.println("edad: "+PacienteEdad.calcularEdad());
+           
+           if(palabras[2].equalsIgnoreCase("Adulto")){//intento que salgan los adultos
+               //System.out.println("SI pasa");
+               //String [] adultos = new String[]{"a"};
+               String[] adultos = {palabras[0]+" "+palabras[1]};
+               String[] adultos2 = {palabras[0]+" "+palabras[1]+adultos};
+               adultos3 = adultos2; 
+           }   
+           
         }
+        
         int[] numeroEPS = {Fami, STotal, CSalud, Coom, SColmena};
         
         
@@ -105,6 +123,14 @@ public class Reto2 {
         }
 
         System.out.println(listaEPS[numeroMayor]);
+        /*System.out.println(adultos3);
+        
+        longitud = adultos3.length;
+        for(int i = 0;i< longitud; i++ ){
+            System.out.println("v["+i+"] = " + adultos3[i]);
+        }
+        */
+
     }
     
 }
