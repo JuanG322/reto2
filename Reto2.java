@@ -22,7 +22,7 @@ public class Reto2 {
         String[] listaEnfermedades = {"cancer", "cardiovasculares", "respiratorias", "cerebrovasculares", "hipertension", "diabetes"};
         String[] listaEPS = {"Famisanar", "Salud Total", "Cafesalud", "Coomeva", "Salud Colmena"};
         String enfermedades, EPS;
-        String[] adultos3 = {};
+        String adultos2 = " ";
         
         Scanner scanner = new Scanner(System.in);
         
@@ -85,13 +85,11 @@ public class Reto2 {
            //System.out.println("edad: "+PacienteEdad.calcularEdad());
            
            if(palabras[2].equalsIgnoreCase("Adulto")){//intento que salgan los adultos
-               //System.out.println("SI pasa");
-               //String [] adultos = new String[]{"a"};
-               String[] adultos = {palabras[0]+" "+palabras[1]};
-               String[] adultos2 = {palabras[0]+" "+palabras[1]+adultos};
-               adultos3 = adultos2; 
-           }   
-           
+               String adultos  = palabras[0]+" "+palabras[1];
+               adultos2 = adultos2+","+adultos;
+               //System.out.println(adultos2);
+               
+           }
         }
         
         int[] numeroEPS = {Fami, STotal, CSalud, Coom, SColmena};
@@ -123,13 +121,15 @@ public class Reto2 {
         }
 
         System.out.println(listaEPS[numeroMayor]);
-        /*System.out.println(adultos3);
         
-        longitud = adultos3.length;
-        for(int i = 0;i< longitud; i++ ){
-            System.out.println("v["+i+"] = " + adultos3[i]);
+        String pacientesAdultos[] = adultos2.split(","); 
+        
+        
+        longitud = pacientesAdultos.length;
+        for(int i = 1;i< longitud; i++ ){
+            System.out.println(pacientesAdultos[i]);
         }
-        */
+        
 
     }
     
