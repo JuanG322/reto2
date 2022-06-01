@@ -18,8 +18,8 @@ public class Paciente {
         this.edad = edad;
         //System.out.println("1 SI");
     }
-    
-    public String calcularEdad(){
+     
+    public String clasificarEdad(){
         //System.out.println("2 SI");
         if(edad >= 21 && edad <= 30){
             edadString = "Joven adulto";          

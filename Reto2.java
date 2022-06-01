@@ -5,22 +5,22 @@
 package reto2;
 
 import java.util.Scanner;
-import java.util.Arrays;
+
 
 /**
  *
  * @author juanj
  */
-public class Reto2 {
+public class reto2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         int numeroPacinetesInt=0, longitud;//defino int y strigs que uso en el programa
-        int cancer=0,card = 0, respi = 0, cereb = 0,hiper = 0, diab = 0, Fami = 0, STotal = 0, Coom = 0, CSalud = 0, SColmena = 0;
+        int cancer=0,card = 0, respi = 0, cereb = 0,hiper = 0, diab = 0, Fami = 0, STotal = 0, Coom = 0, CSalud = 0, SColmena = 0,Sanitas=0,SCOL=0,SSalud=0,SaludC=0,CValle=0,CBlanca=0,ComP=0,SURA=0,ColS=0;
         String[] listaEnfermedades = {"cancer", "cardiovasculares", "respiratorias", "cerebrovasculares", "hipertension", "diabetes"};
-        String[] listaEPS = {"Famisanar", "Salud Total", "Cafesalud", "Coomeva", "Salud Colmena"};
+        String[] listaEPS = {"Famisanar", "Salud Total", "Cafesalud", "Coomeva", "Salud Colmena","Sanitas","Salud colombia","Solsalud","Saludcoop","Comfenalco Valle","Cruz Blanca","Compensar","SURA","Colseguros"};
         String enfermedades, EPS;
         String adultos2 = " ";
         
@@ -37,6 +37,7 @@ public class Reto2 {
            //System.out.println("Ingrese los datos del paciente: ");
            String datos = scanner.nextLine(); 
            String palabras[] = datos.split("-"); 
+           //enfermedades = "AAAA";//palabras[5];
            enfermedades = palabras[5];
            EPS = palabras[4];
            
@@ -57,8 +58,37 @@ public class Reto2 {
                    break;
                case "Salud Colmena":
                    SColmena++;
-                   break;         
+                   break;
+               case "Sanitas":
+                   Sanitas++;
+                   break;
+               case "SALUDCOLOMBIA":
+                   SCOL++;
+                   break;
+               case "Solsalud":
+                   SSalud++;
+                   break;
+               case "Saludcoop":
+                   SaludC++;
+                   break;
+               case "Comfenalco Valle":
+                   CValle++;
+                   break;
+               case "Cruz Blanca":
+                   CBlanca++;
+                   break;
+               case "Compensar":
+                   ComP++;
+                   break;
+               case "SURA":
+                   SURA++;
+                   break;
+               case "Colseguros":
+                   ColS++;
+                   break;
+                   
            }
+            System.out.println(SSalud+" :AAAAAA: "+CSalud);
            //utilizo los if para sumar las difeerentes enfermedades
            if(enfermedades.equalsIgnoreCase("cancer")){
                 cancer++;
@@ -78,10 +108,10 @@ public class Reto2 {
            else if(enfermedades.equalsIgnoreCase("diabetes")){
                 diab++;
             }
-           
+            
            int edad = Integer.parseInt(palabras[2]);
            Paciente PacienteEdad = new Paciente(edad);
-           palabras[2] = PacienteEdad.calcularEdad();
+           palabras[2] = PacienteEdad.clasificarEdad();
            //System.out.println("edad: "+PacienteEdad.calcularEdad());
            
            if(palabras[2].equalsIgnoreCase("Adulto")){//intento que salgan los adultos
@@ -92,7 +122,8 @@ public class Reto2 {
            }
         }
         
-        int[] numeroEPS = {Fami, STotal, CSalud, Coom, SColmena};
+        //int[] numeroEPS = {Fami, STotal, CSalud, Coom, SColmena};
+        int[] numeroEPS = {Fami, STotal, CSalud, Coom, SColmena,Sanitas,SCOL,SSalud,SaludC,CValle,CBlanca,ComP,SURA,ColS}; 
         
         
         int[] numeroEnfermedades = {cancer, card, respi, cereb, hiper, diab};
